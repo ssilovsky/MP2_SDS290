@@ -11,21 +11,25 @@ library(stringr)
 ```
 
 ```{r echo=FALSE}
-data <- read_csv('df2.csv')
+data <- read_csv('q_data.csv')
 ```
 
 ```{r}
 df <- data |> 
-  select(c(18:24)) |>
-  filter(!row_number() %in% c(1, 2,3,4))|>
-  rename("Major"="Q8" , "only_life"="Q1_1", "abundant_life" ="Q1_2", "intelligent_life"="Q1_3", "treatment"="DefaultQuestionBlock_DO")|>
-  mutate(treatment = str_replace(treatment, "Q2", "video")) |>
-  mutate(treatment = str_replace(treatment, "Q3", "pic_NTS")) |>
-    mutate(treatment = str_replace(treatment, "Q5", "pic_TS")) |>
-  drop_na("treatment", "intelligent_life", "Major")|>
-    mutate_at(c('only_life', 'abundant_life', "intelligent_life"), as.numeric)
- 
-df$treatment <- as.factor(df$treatment)
+  select(c(18:27))|>
+  filter(!row_number() %in% c(1, 2))|>
+  rename("consent"="Q1" , "dietary_resitriction"="Q2...19", "class" ="Q2...20", "gender"="Q4", "neighborhood"="Q5", "sit_and_eat"="Q16_1", "find_new_dining"="Q16_2", "grab_and_go"="Q16_3","enjoy_eating"="Q16_4", "treatment"="Treatment_DO")|>
+  mutate(treatment = str_replace(treatment, "Q7", "lamont_alone_busy")) |>
+  mutate(treatment = str_replace(treatment, "Q8", "lamont_friends_busy")) |>
+  mutate(treatment = str_replace(treatment, "Q12", "nogi_alone_normal")) |>
+  mutate(treatment = str_replace(treatment, "Q10", "nogi_friends_normal")) |>
+  mutate(treatment = str_replace(treatment, "Q11", "cz_alone_empty")) |>
+  mutate(treatment = str_replace(treatment, "Q12", "cz_friends_empty")) 
+  #drop_na("treatment", "intelligent_life", "Major")|>
+  #mutate_at(c('only_life', 'abundant_life', "intelligent_life"), as.numeric)
+  #how 
+  
+
 
 export(df, "df.csv")
 ```
