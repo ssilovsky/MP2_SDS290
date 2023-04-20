@@ -1,5 +1,21 @@
 ---
 title: "MP2"
-format: html
+format: pdf
 ---
+
+```{r}
+library(tidyverse)
+library(Stat2Data)
+library(asbio)
+library(rio)
+library(Stat2Data)
+## new package!
+library(fastDummies)
+```
+
+
+
+```{r}
+#df <- import("df.csv")
+```
 

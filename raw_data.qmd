@@ -3,3 +3,29 @@ title: "raw data"
 format: html
 ---
 
+```{r}
+library(tidyverse)
+library(rio)
+library(asbio)
+library(stringr)
+```
+
+```{r echo=FALSE}
+data <- read_csv('df2.csv')
+```
+
+```{r}
+df <- data |> 
+  select(c(18:24)) |>
+  filter(!row_number() %in% c(1, 2,3,4))|>
+  rename("Major"="Q8" , "only_life"="Q1_1", "abundant_life" ="Q1_2", "intelligent_life"="Q1_3", "treatment"="DefaultQuestionBlock_DO")|>
+  mutate(treatment = str_replace(treatment, "Q2", "video")) |>
+  mutate(treatment = str_replace(treatment, "Q3", "pic_NTS")) |>
+    mutate(treatment = str_replace(treatment, "Q5", "pic_TS")) |>
+  drop_na("treatment", "intelligent_life", "Major")|>
+    mutate_at(c('only_life', 'abundant_life', "intelligent_life"), as.numeric)
+ 
+df$treatment <- as.factor(df$treatment)
+
+export(df, "df.csv")
+```

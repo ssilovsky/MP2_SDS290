@@ -1,0 +1,12 @@
+consent,dietary_resitriction,class,gender,neighborhood,sit_and_eat,find_new_dining,grab_and_go,enjoy_eating,treatment
+I consent,No restrictions,,Non-binary / third gender,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",Neither agree nor disagree,Neither agree nor disagree,Neither agree nor disagree,Neither agree nor disagree,
+I consent,No restrictions,2023,Female,"Garden (Comstock, Haven/Wesley, Gardiner, Morrow, Sessions, Wilder, Wilson)",Strongly disagree,Strongly disagree,Strongly agree,Strongly disagree,nogi_alone_normal
+I consent,No restrictions,2024,Female,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",Somewhat agree,Somewhat disagree,Somewhat agree,Somewhat disagree,nogi_alone_normal
+I consent,No restrictions,2024,Non-binary / third gender,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",Strongly agree,Somewhat disagree,Somewhat agree,Neither agree nor disagree,cz_alone_empty
+I consent,No restrictions,2024,Female,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",Disagree,Agree,Agree,Disagree,lamont_alone_busy
+I consent,No restrictions,2024,Female,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",Agree,Somewhat disagree,Disagree,Agree,nogi_alone_normal
+I consent,Other,2024,Female,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",Somewhat agree,Agree,Disagree,Strongly agree,cz_alone_empty
+I consent,No restrictions,2025,Non-binary / third gender,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",Somewhat agree,Disagree,Agree,Somewhat agree,nogi_alone_normal
+I consent,No restrictions,2023,Female,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",Somewhat agree,Somewhat disagree,Agree,Somewhat agree,nogi_friends_normal
+I consent,No restrictions,2023,Female,,Somewhat disagree,Somewhat disagree,Strongly agree,Disagree,lamont_friends_busy
+I consent,Vegetarian,2022,Female,,Agree,Disagree,Somewhat agree,Agree,lamont_alone_busy
