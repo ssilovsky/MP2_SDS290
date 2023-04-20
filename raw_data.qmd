@@ -1,7 +1,9 @@
 ---
 title: "raw data"
-format: html
+author: "Lessly Ortiz, Elysia Pil, Sophia Silovsky"
+format: pdf
 ---
+
 
 ```{r}
 library(tidyverse)
@@ -33,3 +35,4 @@ df <- data |>
 
 export(df, "df.csv")
 ```
+
