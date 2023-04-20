@@ -1,5 +1,20 @@
 ---
 title: "raw data"
-format: html
+author: "Lessly Ortiz, Elysia Pil, Sophia Silovsky"
+format: pdf
 ---
+
+```{r, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(rio)
+library(asbio)
+library(lsmeans)
+
+
+export(cleaned_data, "dining_experiment_data.csv")
+
+raw_data <- read.csv("l.csv")
+
+```
+
 
