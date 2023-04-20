@@ -1,5 +1,6 @@
 ---
-title: "MP2"
-format: html
+title: "Mini Project 2"
+author: "Lessly Ortiz, Elysia Pil, Sophia Silovsky"
+format: pdf
 ---
 
