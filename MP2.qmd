@@ -1,7 +1,8 @@
+---
 title: "Mini Project 2"
 author: "Lessly Ortiz, Elysia Pil, Sophia Silovsky"
 format: pdf
-
+---
 
 ```{r}
 library(tidyverse)
