@@ -5,34 +5,83 @@ format: pdf
 ---
 
 
-```{r}
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(rio)
 library(asbio)
 library(stringr)
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 data <- read_csv('q_data.csv')
 ```
 
-```{r}
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 df <- data |> 
   select(c(18:27))|>
   filter(!row_number() %in% c(1, 2))|>
-  rename("consent"="Q1" , "dietary_resitriction"="Q2...19", "class" ="Q2...20", "gender"="Q4", "neighborhood"="Q5", "sit_and_eat"="Q16_1", "find_new_dining"="Q16_2", "grab_and_go"="Q16_3","enjoy_eating"="Q16_4", "treatment"="Treatment_DO")|>
+  rename("consent"="Q1", 
+         "dietary_resitriction"="Q2...19", 
+         "class" ="Q2...20", "gender"="Q4", 
+         "neighborhood"="Q5", 
+         "sit_and_eat"="Q16_1", 
+         "find_new_dining"="Q16_2", 
+         "grab_and_go"="Q16_3","enjoy_eating"="Q16_4", 
+         "treatment"="Treatment_DO")|>
+  
   mutate(treatment = str_replace(treatment, "Q7", "lamont_alone_busy")) |>
   mutate(treatment = str_replace(treatment, "Q8", "lamont_friends_busy")) |>
   mutate(treatment = str_replace(treatment, "Q12", "nogi_alone_normal")) |>
   mutate(treatment = str_replace(treatment, "Q10", "nogi_friends_normal")) |>
   mutate(treatment = str_replace(treatment, "Q11", "cz_alone_empty")) |>
-  mutate(treatment = str_replace(treatment, "Q12", "cz_friends_empty")) 
-  #drop_na("treatment", "intelligent_life", "Major")|>
-  #mutate_at(c('only_life', 'abundant_life', "intelligent_life"), as.numeric)
-  #how 
+  mutate(treatment = str_replace(treatment, "Q12", "cz_friends_empty"))|>
   
+  #response variable transformation into numeric values with strongly disagree=1 and strongly agree=7
+  mutate(sit_and_eat = str_replace(sit_and_eat, "Strongly disagree", "1"))|>
+  mutate(sit_and_eat = str_replace(sit_and_eat, "Strongly agree", "7"))|>
+  mutate(sit_and_eat = str_replace(sit_and_eat, "Somewhat disagree", "2"))|>  
+  mutate(sit_and_eat = str_replace(sit_and_eat, "Somewhat agree", "6"))|>  
+  mutate(sit_and_eat = str_replace(sit_and_eat, "Disagree", "3"))|>  
+  mutate(sit_and_eat = str_replace(sit_and_eat, "Agree", "5"))|>  
+  mutate(sit_and_eat = str_replace(sit_and_eat, "Neither agree nor disagree", "4"))|>
+  
+  mutate(find_new_dining = str_replace(find_new_dining, "Strongly disagree", "1"))|>
+  mutate(find_new_dining = str_replace(find_new_dining, "Strongly agree", "7"))|>
+  mutate(find_new_dining = str_replace(find_new_dining, "Somewhat disagree", "2"))|>  
+  mutate(find_new_dining = str_replace(find_new_dining, "Somewhat agree", "6"))|>  
+  mutate(find_new_dining = str_replace(find_new_dining, "Disagree", "3"))|>  
+  mutate(find_new_dining = str_replace(find_new_dining, "Agree", "5"))|>  
+  mutate(find_new_dining = str_replace(find_new_dining, "Neither agree nor disagree", "4"))|>
+  
+  mutate(grab_and_go = str_replace(grab_and_go, "Strongly disagree", "1"))|>
+  mutate(grab_and_go = str_replace(grab_and_go, "Strongly agree", "7"))|>
+  mutate(grab_and_go = str_replace(grab_and_go, "Somewhat disagree", "2"))|>  
+  mutate(grab_and_go = str_replace(grab_and_go, "Somewhat agree", "6"))|>  
+  mutate(grab_and_go = str_replace(grab_and_go, "Disagree", "3"))|>  
+  mutate(grab_and_go = str_replace(grab_and_go, "Agree", "5"))|>  
+  mutate(grab_and_go = str_replace(grab_and_go, "Neither agree nor disagree", "4"))|>
+  
+  mutate(enjoy_eating = str_replace(enjoy_eating, "Strongly disagree", "1"))|>
+  mutate(enjoy_eating = str_replace(enjoy_eating, "Strongly agree", "7"))|>
+  mutate(enjoy_eating = str_replace(enjoy_eating, "Somewhat disagree", "2"))|>  
+  mutate(enjoy_eating = str_replace(enjoy_eating, "Somewhat agree", "6"))|>  
+  mutate(enjoy_eating = str_replace(enjoy_eating, "Disagree", "3"))|>  
+  mutate(enjoy_eating = str_replace(enjoy_eating, "Agree", "5"))|>  
+  mutate(enjoy_eating = str_replace(enjoy_eating, "Neither agree nor disagree", "4"))
+
+  
+df$treatment <- as.factor(df$treatment)
+df$sit_and_eat <-as.numeric(df$sit_and_eat)
+df$find_new_dining <-as.numeric(df$find_new_dining)
+df$grab_and_go <-as.numeric(df$grab_and_go)
+df$enjoy_eating <-as.numeric(df$enjoy_eating)
+#drop_na("treatment", "intelligent_life", "Major")|> ???what do with na's???  
 
 
 export(df, "df.csv")
 ```
+
+
 
