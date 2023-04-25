@@ -13,7 +13,7 @@ library(stringr)
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-data <- read_csv('q_data.csv')
+data <- read_csv('C:/Users/sophi/Downloads/sds 290 - research design and analysis/Mini-project+2_April+25,+2023_08.56.csv')
 ```
 
 
