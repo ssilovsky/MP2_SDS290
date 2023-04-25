@@ -83,4 +83,51 @@ export(df, "df.csv")
 ```
 
 
+-------------------------------------------------
 
+```{r}
+test1_sit <- aov(sit_and_eat ~ dietary_resitriction + treatment, data = df)
+
+summary(test1_sit)
+```
+```{r}
+test2_sit <- lm(sit_and_eat ~ dietary_resitriction + treatment, data = df)
+
+summary(test2_sit)
+```
+
+```{r}
+test1_din <- aov(find_new_dining ~ dietary_resitriction + treatment, data = df)
+
+summary(test1_din)
+```
+
+```{r}
+test2_din <- lm(find_new_dining ~ dietary_resitriction + treatment, data = df)
+
+summary(test2_din)
+```
+
+```{r}
+test1_grab <- aov(grab_and_go ~ dietary_resitriction + treatment, data = df)
+
+summary(test1_grab)
+```
+
+```{r}
+test2_grab <- lm(grab_and_go ~ dietary_resitriction + treatment, data = df)
+
+summary(test2_grab)
+```
+
+```{r}
+test1_enj <- aov(enjoy_eating ~ dietary_resitriction + treatment, data = df)
+
+summary(test1_enj)
+```
+
+```{r}
+test2_enj <- lm(enjoy_eating ~ dietary_resitriction + treatment, data = df)
+
+summary(test2_enj)
+```
