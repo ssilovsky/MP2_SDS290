@@ -13,7 +13,7 @@ library(stringr)
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-data <- read_csv('Mini-project+2_April+30,+2023_11.37.csv')
+data <- read.csv('Mini-project+2_April+30,+2023_11.37.csv')
 ```
 
 
