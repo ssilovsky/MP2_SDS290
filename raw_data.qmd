@@ -77,11 +77,13 @@ df <- data |>
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-df$treatment <- as.numeric(df$treatment)
+
 df$sit_and_eat <-as.numeric(df$sit_and_eat)
 df$find_new_dining <-as.numeric(df$find_new_dining)
 df$grab_and_go <-as.numeric(df$grab_and_go)
 df$enjoy_eating <-as.numeric(df$enjoy_eating)
+
+
 #drop_na("treatment", "intelligent_life", "Major")|> ???what do with na's???  
 
 
@@ -137,8 +139,7 @@ df$group <- as.factor(df$group)
 ```{r}
 #Data Exploration
 
-
-df<- df |>
+df_dropped <- df |> 
   drop_na("group")
 
 summary(df)
@@ -168,6 +169,25 @@ qplot(x=group, y=find_new_dining, data=df, ylab="Agreement Level", geom="boxplot
 qplot(x=group, y=grab_and_go, data=df, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
 qplot(x=group, y=enjoy_eating, data=df, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
 ```
+
+```{r}
+
+df|>
+  group_by(group) |>
+  summarise(Group_mean=mean(sit_and_eat), Sample_size=n(), standard_dev=sd(sit_and_eat))
+
+df|>
+  group_by(group) |>
+  summarise(Group_mean=mean(find_new_dining), Sample_size=n(), standard_dev=sd(find_new_dining))
+
+df|> drop_na("grab_and_go", "group")|>
+  group_by(group) |>
+  summarise(Group_mean=mean(grab_and_go), Sample_size=n(), standard_dev=sd(grab_and_go))
+
+
+```
+
+
 
 
 
