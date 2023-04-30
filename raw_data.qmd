@@ -32,7 +32,7 @@ df <- data |>
   
   mutate(treatment = str_replace(treatment, "Q7", "lamont_alone_busy")) |>
   mutate(treatment = str_replace(treatment, "Q8", "lamont_friends_busy")) |>
-  mutate(treatment = str_replace(treatment, "Q12", "nogi_alone_normal")) |>
+  mutate(treatment = str_replace(treatment, "Q9", "nogi_alone_normal")) |>
   mutate(treatment = str_replace(treatment, "Q10", "nogi_friends_normal")) |>
   mutate(treatment = str_replace(treatment, "Q11", "cz_alone_empty")) |>
   mutate(treatment = str_replace(treatment, "Q12", "cz_friends_empty"))|>

@@ -1,31 +1,55 @@
 consent,dietary_resitriction,class,gender,neighborhood,sit_and_eat,find_new_dining,grab_and_go,enjoy_eating,treatment
 I consent,No restrictions,,Non-binary / third gender,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",4,4,4,4,
 I consent,No restrictions,2023,Female,"Garden (Comstock, Haven/Wesley, Gardiner, Morrow, Sessions, Wilder, Wilson)",1,1,7,1,nogi_alone_normal
-I consent,No restrictions,2024,Female,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",6,2,6,2,nogi_alone_normal
+I consent,No restrictions,2024,Female,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",6,2,6,2,cz_friends_empty
 I consent,No restrictions,2024,Non-binary / third gender,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",7,2,6,4,cz_alone_empty
 I consent,No restrictions,2024,Female,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",3,5,5,3,lamont_alone_busy
-I consent,No restrictions,2024,Female,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",5,2,3,5,nogi_alone_normal
+I consent,No restrictions,2024,Female,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",5,2,3,5,cz_friends_empty
 I consent,Other,2024,Female,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",6,5,3,7,cz_alone_empty
 I consent,No restrictions,2025,Non-binary / third gender,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",6,3,5,6,nogi_alone_normal
 I consent,No restrictions,2023,Female,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",6,2,5,6,nogi_friends_normal
 I consent,No restrictions,2023,Female,,2,2,7,3,lamont_friends_busy
 I consent,Vegetarian,2022,Female,,5,3,6,5,lamont_alone_busy
-I consent,No restrictions,2023,Female,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",6,3,,4,nogi_alone_normal
+I consent,No restrictions,2023,Female,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",6,3,,4,cz_friends_empty
 I consent,No restrictions,2025,Male,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",4,2,6,2,
 I consent,No restrictions,2025,Female,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",3,6,5,3,lamont_alone_busy
 I consent,No restrictions,2025,Female,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",6,2,1,4,nogi_alone_normal
 I consent,No restrictions,2023,Female,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",5,3,1,5,nogi_alone_normal
-I consent,No restrictions,2024,Non-binary / third gender,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",3,2,5,4,nogi_alone_normal
+I consent,No restrictions,2024,Non-binary / third gender,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",3,2,5,4,cz_friends_empty
 I consent,No restrictions,2024,Female,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",6,4,5,4,nogi_alone_normal
 I consent,Vegetarian,2024,Female,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",1,2,7,4,nogi_friends_normal
 I consent,No restrictions,2026,Non-binary / third gender,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",3,6,7,2,lamont_friends_busy
 I consent,No restrictions,2026,Non-binary / third gender,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",6,2,2,4,nogi_alone_normal
-I consent,Gluten-free,2025,Female,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",4,2,5,4,nogi_alone_normal
-I consent,Other,2025,Female,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",4,3,5,2,nogi_alone_normal
-I consent,No restrictions,2025,Female,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",5,3,3,6,nogi_alone_normal
+I consent,Gluten-free,2025,Female,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",4,2,5,4,cz_friends_empty
+I consent,Other,2025,Female,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",4,3,5,2,cz_friends_empty
+I consent,No restrictions,2025,Female,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",5,3,3,6,cz_friends_empty
 I consent,Vegetarian,2026,Prefer not to say,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",3,1,5,2,lamont_alone_busy
 I consent,Other,2024,Female,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",6,6,7,4,lamont_friends_busy
 I consent,Vegetarian,2026,Female,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",6,6,4,2,lamont_friends_busy
-I consent,No restrictions,2024,Female,"Garden (Comstock, Haven/Wesley, Gardiner, Morrow, Sessions, Wilder, Wilson)",7,4,1,5,nogi_alone_normal
+I consent,No restrictions,2024,Female,"Garden (Comstock, Haven/Wesley, Gardiner, Morrow, Sessions, Wilder, Wilson)",7,4,1,5,cz_friends_empty
 I consent,Gluten-free,2023,Female,,3,5,4,2,lamont_friends_busy
 I consent,Gluten-free,2023,Female,,5,5,4,5,cz_alone_empty
+I consent,No restrictions,2023,Female,"Paradise (Cushing, Emerson, Friedman, Jordan, King, Park, Parsons, Scales)",5,3,6,6,lamont_alone_busy
+I consent,No restrictions,2023,Female,"Garden (Comstock, Haven/Wesley, Gardiner, Morrow, Sessions, Wilder, Wilson)",5,3,1,4,nogi_friends_normal
+I consent,No restrictions,2023,Female,"Garden (Comstock, Haven/Wesley, Gardiner, Morrow, Sessions, Wilder, Wilson)",6,4,3,4,lamont_alone_busy
+I consent,Vegetarian,2024,Female,,5,4,4,4,cz_friends_empty
+I consent,Other,2024,Female,"Garden (Comstock, Haven/Wesley, Gardiner, Morrow, Sessions, Wilder, Wilson)",7,3,3,5,cz_alone_empty
+I consent,No restrictions,ada,Male,"Paradise (Cushing, Emerson, Friedman, Jordan, King, Park, Parsons, Scales)",5,3,4,2,lamont_friends_busy
+I consent,No restrictions,2025J,Female,"Special Interest Housing (Chase, Hopkins, Park, Parsons, Tenney)",3,6,5,6,lamont_alone_busy
+I consent,No restrictions,2023,Female,"Garden (Comstock, Haven/Wesley, Gardiner, Morrow, Sessions, Wilder, Wilson)",5,3,1,6,cz_friends_empty
+I consent,No restrictions,2024,Female,,5,3,6,7,lamont_friends_busy
+I consent,No restrictions,2024J,Female,,5,6,3,6,cz_alone_empty
+I consent,No restrictions,2025J,Female,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",3,6,7,4,lamont_alone_busy
+I consent,No restrictions,2024,Female,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",3,3,5,4,nogi_alone_normal
+I consent,No restrictions,2024,Female,"Mountain (Capen, Cutter, Gillett, Lamont, Northrop, Talbot, Ziskind)",5,1,6,4,cz_friends_empty
+I consent,Other,2023,Female,"Paradise (Cushing, Emerson, Friedman, Jordan, King, Park, Parsons, Scales)",7,3,6,7,cz_alone_empty
+I consent,No restrictions,,Female,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",,,,,lamont_alone_busy
+I consent,,,,,,,,,
+I consent,,,,,,,,,
+I consent,"Gluten-free,Other",2023,Female,,,,,,lamont_friends_busy
+I consent,,,,,,,,,
+I consent,,,,,,,,,
+I consent,No restrictions,2023,Female,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",,,,,nogi_alone_normal
+I consent,Other,2024,Female,"Special Interest Housing (Chase, Hopkins, Park, Parsons, Tenney)",4,4,5,2,lamont_friends_busy
+I consent,No restrictions,2024,Female,"Ivy (Albright, Baldwin, Chapin, Duckett, Hubbard, Lawrence, Morris, Tyler, Washburn)",,,,,nogi_alone_normal
+I consent,No restrictions,2024,Female,"Garden (Comstock, Haven/Wesley, Gardiner, Morrow, Sessions, Wilder, Wilson)",,,,,cz_alone_empty
