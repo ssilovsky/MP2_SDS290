@@ -23,6 +23,7 @@ data <- read.csv('Mini-project+2_April+30,+2023_11.50.csv')
 df <- data |> 
   select(c(7, 18:27))|>
   filter(!row_number() %in% c(1,2))|>
+  filter()
   rename("consent"="Q1", 
          "dietary_resitriction"="Q2", 
          "class" ="Q2.1", 
@@ -83,5 +84,44 @@ df$enjoy_eating <-as.numeric(df$enjoy_eating)
 
 
 export(df, "df.csv")
+```
+
+
+```{r}
+
+df$group[df$treatment == "nogi_alone_normal"] <- 1
+df$group[df$treatment == "nogi_friends_normal"] <- 2
+
+df$group[df$treatment == "lamont_alone_busy"] <- 3
+df$group[df$treatment == "lamont_friends_busy"] <- 4
+
+df$group[df$treatment == "cz_alone_empty"] <- 5
+df$group[df$treatment == "cz_friends_empty"] <- 6
+
+
+
+df$var1[df$treatment == "nogi_alone_normal"] <- 0
+df$var1[df$treatment == "nogi_friends_normal"] <- 1
+
+df$var1[df$treatment == "lamont_alone_busy"] <- 0
+df$var1[df$treatment == "lamont_friends_busy"] <- 1
+
+df$var1[df$treatment == "cz_alone_empty"] <- 0
+df$var1[df$treatment == "cz_friends_empty"] <- 1
+
+
+
+
+df$var2[df$treatment == "nogi_alone_normal"] <- 2
+df$var1[df$treatment == "nogi_friends_normal"] <- 2
+
+df$var2[df$treatment == "lamont_alone_busy"] <- 3
+df$var2[df$treatment == "lamont_friends_busy"] <- 3
+
+df$var2[df$treatment == "cz_alone_empty"] <- 1
+df$var2[df$treatment == "cz_friends_empty"] <- 1
+
+
+
 ```
 
