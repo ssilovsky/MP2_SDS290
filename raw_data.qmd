@@ -73,9 +73,11 @@ df <- data |>
   mutate(enjoy_eating = str_replace(enjoy_eating, "Disagree", "3"))|>  
   mutate(enjoy_eating = str_replace(enjoy_eating, "Agree", "5"))|>  
   mutate(enjoy_eating = str_replace(enjoy_eating, "Neither agree nor disagree", "4"))
+```
 
-  
-df$treatment <- as.factor(df$treatment)
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+df$treatment <- as.numeric(df$treatment)
 df$sit_and_eat <-as.numeric(df$sit_and_eat)
 df$find_new_dining <-as.numeric(df$find_new_dining)
 df$grab_and_go <-as.numeric(df$grab_and_go)
@@ -89,6 +91,8 @@ export(df, "df.csv")
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 
+#interaction group
+
 df$group[df$treatment == "nogi_alone_normal"] <- 1
 df$group[df$treatment == "nogi_friends_normal"] <- 2
 
@@ -99,6 +103,7 @@ df$group[df$treatment == "cz_alone_empty"] <- 5
 df$group[df$treatment == "cz_friends_empty"] <- 6
 
 
+#with friends or not
 
 df$var1[df$treatment == "nogi_alone_normal"] <- 0
 df$var1[df$treatment == "nogi_friends_normal"] <- 1
@@ -110,7 +115,7 @@ df$var1[df$treatment == "cz_alone_empty"] <- 0
 df$var1[df$treatment == "cz_friends_empty"] <- 1
 
 
-
+#Bussiness
 
 df$var2[df$treatment == "nogi_alone_normal"] <- 2
 df$var2[df$treatment == "nogi_friends_normal"] <- 2
@@ -129,6 +134,40 @@ df$group <- as.factor(df$group)
 
 
 
+```{r}
+#Data Exploration
+
+
+df<- df |>
+  drop_na("group")
+
+summary(df)
+
+ggplot(data = df, mapping = aes(x=group, y =sit_and_eat,  fill = group)) +
+geom_col()+
+  labs(title = "Group Agreement to Sit and Eat",
+       y = "Total Level of Agreement(1:Strongly Disagree, 7:Strongly Agree)", fill = "Treatment Group",
+       x = "Treatment Group")
+
+ggplot(data = df, mapping = aes(x=group, y =find_new_dining,  fill = group)) +
+geom_col()+
+  labs(title = "Group Agreement to Find new Dining Hall",
+       y = "Total Level of Agreement(1:Strongly Disagree, 7:Strongly Agree)", fill = "Treatment Group",
+       x = "Treatment Group")
+
+ggplot(data = df, mapping = aes(x=group, y =enjoy_eating,  fill = group)) +
+geom_col()+
+  labs(title = "Group Agreement to Enjoy Eating",
+       y = "Total Level of Agreement(1:Strongly Disagree, 7:Strongly Agree)", fill = "Treatment Group",
+       x = "Treatment Group")
+
+
+
+qplot(x=group, y=sit_and_eat, data=df, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
+qplot(x=group, y=find_new_dining, data=df, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
+qplot(x=group, y=grab_and_go, data=df, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
+qplot(x=group, y=enjoy_eating, data=df, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
+```
 
 
 
