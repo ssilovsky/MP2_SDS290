@@ -121,6 +121,15 @@ df$var2[df$treatment == "cz_alone_empty"] <- 1
 df$var2[df$treatment == "cz_friends_empty"] <- 1
 
 
-
+df$var2 <- as.factor(df$var2)
+df$var1 <- as.factor(df$var1)
+df$group <- as.factor(df$group)
 ```
+
+
+
+
+
+
+
 
