@@ -203,7 +203,25 @@ ggplot(df_dropped, aes(x=interaction(var1, var2), y=sit_and_eat))+
 
 with(df_dropped,interaction.plot(var1, var2, sit_and_eat))
 
-with(df_dropped,interaction.plot(var1, var2, sit_and_eat))
+with(df_dropped,interaction.plot(var1, var2, enjoy_eating))
+
+
+dining_aov <- aov(sit_and_eat~var1*var2, data=df_dropped)
+
+summary(dining_aov)
+
+
+dining_aov2 <- aov(enjoy_eating~var1*var2, data=df_dropped)
+
+summary(dining_aov2)
+
+dining_aov3 <- aov(find_new_dining~var1*var2, data=df_dropped)
+
+summary(dining_aov3)
+
+dining_aov4 <- aov(grab_and_go~var1*var2, data=df_dropped)
+
+summary(dining_aov4)
 
 ```
 
