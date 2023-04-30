@@ -1,0 +1,186 @@
+---
+title: "Mini Project 1"
+author: "Elysia Pil"
+format: pdf
+editor: visual
+---
+
+## Intro
+
+With more and more scientific research leading to new discoveries and observations, the field of astronomy and space exploration in general has always been a keen topic of interest in the US. As private companies, such as SpaceX, march forward in the pursuit of comercial space travel and colonies on Mars, it surfaces the question, is space exploration worth the financial cost? Should this money be spent on other more pressing matters? These thoughts led me to chose space exploration as the inspiration for my research project.
+
+As a psychology major, I wanted to investigate how behavior can be effected by visual framing. Do the associations we have with different visual stimuli subconsciously change our opinions? This idea backs marketing strategies and can be a powerful tool since visual advertising has become so engrained within social media, for example, Instagram. Could just looking at a photo make us think differently about spending money? Since my research topic is related to space, my research will answer the question, \"Does visual framing have an effect on people\'s interest in investing in private companies that research space exploration?\". I think that different photos will have an effect on people's interest in investing into space exploration.
+
+## Methods
+
+My study consists of a short survey that is anonymously conducted through the use of Qualtrics. My independent variable is the photo shown above the survey questions. I have three treatments: a postive association, a negative association, and no photo as a control group. For the positive association group, a photo of a cute dog wearing a space suit will be shown, and the negative association group will be shown fictional aliens with dangerous lazers. This manipulated variable is categorical. There are six statements on the survey that are measured in agreement with the statement on a scale of 1-5 (Strongly Disagree, Somewhat Disagree, Neither agree nor disagree, Somewhat Agree, Strongly Agree). The measured variable is continuous as there is a clear distance between each value. Treatment photos can be seen in Figures 1 and 2.
+
+The units of my study are Smith students with a sample size of 34. Qualtrics uses an algorithm to randomly assign the participant to a treatment group. While I am only focusing on the statement, \"I am likely to invest money in private companies that research space exploration.\", I have included 5 other statements that to understand the participants overall views and experience with the topic of space exploration. These statements also help prevent participants bias from trying to derive conclusions about what they think the responses surveyest wants to see. An image of the survey can be seen in Figure 3. A one-way ANOVA test will be utilized to analyze the data gathered from the survey. ANOVA, or analysis of variance, is a statistical test that is used to analyze the difference between the means of three or more groups. My test is one-way because there is only one independent variable.
+
+## Results
+
+```{r, include=F, warnign=F, echo=F}
+library(tidyverse)
+library(ggplot2)
+
+#Data Import
+
+raw_data <- read.csv("MP1_Data.csv")
+
+clean_df <- subset(raw_data, select = c(ResponseId, Q4, Q6, Q5, Q17_1, Q17_2,Q17_3,Q17_4,Q17_5,Q17_6,Q19_1,Q19_2,Q19_3,Q19_4,Q19_5,Q19_6,Q18_1, Q18_2,Q18_3,Q18_4,Q18_5,Q18_6))
+
+```
+
+```{r, include=F, warnign=F, echo=F}
+#Data Cleaning
+
+space_data <- clean_df |>
+   unite(interest, Q17_1, Q18_1, Q19_1, sep = "", remove=F) |>
+   unite(news, Q17_2, Q18_2, Q19_2, sep = "", remove=F) |>
+   unite(invest, Q17_3, Q18_3, Q19_3, sep = "", remove=F) |>
+   unite(public, Q17_4, Q18_4, Q19_4, sep = "", remove=F) |>
+   unite(pay, Q17_5, Q18_5, Q19_5, sep = "", remove=F) |>
+   unite(important, Q17_6, Q18_6, Q19_6, sep = "", remove=F) 
+
+space_data$alien <- as.numeric(clean_df$Q17_1)
+space_data$dog <- as.numeric(clean_df$Q18_1)
+space_data$control <- as.numeric(clean_df$Q19_1)
+
+space_data$Treatment[!is.na(space_data$alien)] <- "Alien"
+space_data$Treatment[!is.na(space_data$dog)] <- "Dog"
+space_data$Treatment[!is.na(space_data$control)] <- "Control"
+
+space_data$treatment <- as.factor(space_data$Treatment)
+
+space_data <- space_data |>
+  drop_na("treatment")
+
+space_clean <- subset(space_data, select = c(Treatment, Q4, Q5, Q6, interest, news, invest, public, pay, important))
+
+space_clean$Year <- space_clean$Q4
+space_clean$Major <- space_clean$Q5
+space_clean$Gender <- space_clean$Q6
+
+space_clean$Gender[space_clean$Q6 == 2] <- "Female"
+space_clean$Gender[space_clean$Q6 == 3] <- "Non-Binary/Gender Fluid"
+
+space_clean <- subset(space_clean, select = c(Treatment, Year, Major, Gender, interest, news, invest, public, pay, important))
+
+
+```
+
+```{r, include=F, warnign=F, echo=F}
+
+#Data Cleaning
+space_clean <- space_clean |>
+  mutate_at(c('interest', 'news', "invest", "public","pay","important", "Year"), as.numeric)
+
+space_clean$Gender <- as.factor(space_clean$Gender)
+space_clean$Major <- as.character(space_clean$Major)
+space_clean$Major <- as.numeric(space_clean$invest)
+```
+
+To get a general sense of the overall responses for this specific investment variable, this barplot helps visualize the data.
+
+```{r, warnign=F, echo=F}
+ggplot(data = space_clean, mapping = aes(x=invest, fill = Treatment)) +
+geom_bar()+
+  labs(title = "Levels of Agreement to the Statement about Investing",
+       y = "Number of Responses",
+       x = "Level of Agreement(1:Strongly Disagree, 5:Strongly Agree)", fill = "Treatment Group")
+```
+
+After the survey data is collected and cleaned, there are several conditions that need to be met in order for ANOVA testing to be considered good to use for analyzing the data. The conditions are: the dependent variable must be continuous; within the treatment groups, the response variable should be relatively symmetric and normal distribution; a similar variability of responses across groups; and no major outliers that can skew the data. Again, I will only be analyzing the investment statement level.
+
+A boxplot can be used to determine the symmetry of responses between the treatment groups. A good distribution would have equal amounts above and below the mean of **each** group. Unfortunately, my data seems to be unsymmetrical and very skewed toward the strongly disagree response for the Alien and Control treatment groups. The dog treatment group, however, seems to be symmetric. I will also note there is an outlier in the control group, but since the outlier is only one level higher than the rest, it should not skew the graph too much.
+
+```{r, warnign=F, echo=F}
+
+qplot(x=Treatment, y=invest, data=space_clean, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
+```
+
+For variability condition, it is best to view the actual numbers. A good rule of thumb is that the largest standard deviation value is no more than 2 times the size of the smallest standard deviation. This can be viewed in the table below. Here we can see the variability fits within the condition.
+
+```{r, warnign=F, echo=F}
+#Main DVariable
+space_clean|>
+  group_by(Treatment) |>
+  summarise(Group_mean=mean(invest), Sample_size=n(), standard_dev=sd(invest))
+
+```
+
+Although this data does not meet all the conditions needed for ANOVA, I will still be conducting an ANOVA test.
+
+```{r, warnign=F, echo=F}
+
+aov_invest <- aov(invest~Treatment, data=space_clean)
+summary(aov_invest)
+```
+
+From this test, we can see that the data is insignificant. There is both a small F value and a p value greater than 0.05. This would show that the null hypothesis cannot be rejected. In other words, there is no statistically significant effect from the different photos on a persons willingness to invest in private companies researching space exploration.
+
+We can continue to analyze further by visualizing the residuals.
+
+```{r, warnign=F, echo=F}
+resid <-  resid(aov_invest)
+
+Model <- data.frame(Fitted = fitted(aov_invest), 
+                    Residuals = resid(aov_invest), 
+                    Treatment = space_clean$Treatment,
+                    observed=space_clean$invest)
+
+ggplot(Model, aes(x=Treatment, y=Residuals)) + geom_point()
+ggplot(Model, aes(color=Treatment, x=Residuals)) + geom_density()
+
+```
+
+Residuals should not be different depending on treatment. The residuals should be as small as possible (close to 0 in the dot plot) and the residuals should be symmetrically distributed around the mean of 0 (in the density plot). These plots show confounding factors could have had an effect on our results since our results do not reflect the proper measurements.
+
+To analyze and compare each group in pairs rather than all together, a pairwise comparison test can be conducted. This shows with 95% confidence that the true mean lies between two values, a lower and an upper value.
+
+```{r, warnign=F, echo=F}
+
+pairwise <- TukeyHSD(aov_invest)
+pairwise
+#means not significantly different
+plot(pairwise)
+```
+
+This plot shows that the means between any two groups are not significantly different. The confidence interval should not range between both negative and positive values. It will be significant if all values are positive or all values are negative for any given pair of means.
+
+To end the analysis, effect size and R squared can be calculated to determine what is the relative size of the effect (ie how many standard deviations are there between two means) and how much of the variation in the model is explained by the treatment
+
+```{r, warnign=F, echo=F}
+alien_mean <- mean(space_clean$invest[space_clean$Treatment == "Alien"])
+dog_mean <- mean(space_clean$invest[space_clean$Treatment == "Dog"])
+control_mean <- mean(space_clean$invest[space_clean$Treatment == "Control"])
+
+SD <- sqrt(0.7272)
+
+effsize1 <- abs((alien_mean-dog_mean)/SD)
+#medium
+
+print("Effect Size between Alien and Dog Groups: ")
+effsize1
+
+effsize2 <- abs((control_mean-dog_mean)/SD)
+#trivial
+print("Effect Size between Control and Dog Groups: ")
+effsize2
+
+effsize3 <- abs((alien_mean-control_mean)/SD)
+#medium
+print("Effect Size between Alien and Control Groups: ")
+effsize3
+
+r2 <- 1.573/(1.573+22.545)
+#0.065221
+print("R Squared: ")
+r2
+```
+
+The effect size for Control group and Dog group is trivial meaning the effect is insignificant. For the other two comparisons, the effect size is medium. The R squared value is 0.065. This means 6.5% of variance in responses is due to the treatment.
+
+## Conclusion
+
+Unfortunately, none of the results from my study were significant. This means that the null hypothesis cannot be rejected. Visual framing does not have an effect on people\'s interest in investing in private companies that research space exploration. There are possible confounding factors that could have effected my study. Participants financial background could vary and the possibility of investing into space exploration is not fiscally possible. My photos I chose may not elicit the same positive and negative associations. The Qualtrics randomization is not perfect, so there are different number of participants in each treatment group. The small sample size can also limit my takeaways from this study. In the future, I would hope to have a larger sample size and a greater population than just the convenience sampling from our class. Perhaps different photos could have an effect or perhaps a different more currently pressing issues that requires funding may be more meaningful than space travel and would also conclude different results. Overall, this topic is still very interesting and should be investigated more thoroughly.
