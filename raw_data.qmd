@@ -140,23 +140,23 @@ df$group <- as.factor(df$group)
 #Data Exploration
 
 df_dropped <- df |> 
-  drop_na("group")
+  drop_na()
 
 summary(df)
 
-ggplot(data = df, mapping = aes(x=group, y =sit_and_eat,  fill = group)) +
+ggplot(data = df_dropped, mapping = aes(x=group, y =sit_and_eat,  fill = group)) +
 geom_col()+
   labs(title = "Group Agreement to Sit and Eat",
        y = "Total Level of Agreement(1:Strongly Disagree, 7:Strongly Agree)", fill = "Treatment Group",
        x = "Treatment Group")
 
-ggplot(data = df, mapping = aes(x=group, y =find_new_dining,  fill = group)) +
+ggplot(data = df_dropped, mapping = aes(x=group, y =find_new_dining,  fill = group)) +
 geom_col()+
   labs(title = "Group Agreement to Find new Dining Hall",
        y = "Total Level of Agreement(1:Strongly Disagree, 7:Strongly Agree)", fill = "Treatment Group",
        x = "Treatment Group")
 
-ggplot(data = df, mapping = aes(x=group, y =enjoy_eating,  fill = group)) +
+ggplot(data = df_dropped, mapping = aes(x=group, y =enjoy_eating,  fill = group)) +
 geom_col()+
   labs(title = "Group Agreement to Enjoy Eating",
        y = "Total Level of Agreement(1:Strongly Disagree, 7:Strongly Agree)", fill = "Treatment Group",
@@ -164,25 +164,29 @@ geom_col()+
 
 
 
-qplot(x=group, y=sit_and_eat, data=df, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
-qplot(x=group, y=find_new_dining, data=df, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
-qplot(x=group, y=grab_and_go, data=df, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
-qplot(x=group, y=enjoy_eating, data=df, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
+qplot(x=group, y=sit_and_eat, data=df_dropped, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
+qplot(x=group, y=find_new_dining, data=df_dropped, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
+qplot(x=group, y=grab_and_go, data=df_dropped, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
+qplot(x=group, y=enjoy_eating, data=df_dropped, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
 ```
 
 ```{r}
 
-df|>
+df_dropped|>
   group_by(group) |>
   summarise(Group_mean=mean(sit_and_eat), Sample_size=n(), standard_dev=sd(sit_and_eat))
 
-df|>
+df_dropped|>
   group_by(group) |>
   summarise(Group_mean=mean(find_new_dining), Sample_size=n(), standard_dev=sd(find_new_dining))
 
-df|> drop_na("grab_and_go", "group")|>
+df_dropped|> 
   group_by(group) |>
   summarise(Group_mean=mean(grab_and_go), Sample_size=n(), standard_dev=sd(grab_and_go))
+
+df_dropped|> 
+  group_by(group) |>
+  summarise(Group_mean=mean(enjoy_eating), Sample_size=n(), standard_dev=sd(enjoy_eating))
 
 
 ```
