@@ -107,26 +107,26 @@ df$group[df$treatment == "cz_friends_empty"] <- 6
 
 #with friends or not
 
-df$var1[df$treatment == "nogi_alone_normal"] <- 0
-df$var1[df$treatment == "nogi_friends_normal"] <- 1
+df$var1[df$treatment == "nogi_alone_normal"] <- "Alone"
+df$var1[df$treatment == "nogi_friends_normal"] <- "Friends"
 
-df$var1[df$treatment == "lamont_alone_busy"] <- 0
-df$var1[df$treatment == "lamont_friends_busy"] <- 1
+df$var1[df$treatment == "lamont_alone_busy"] <- "Alone"
+df$var1[df$treatment == "lamont_friends_busy"] <- "Friends"
 
-df$var1[df$treatment == "cz_alone_empty"] <- 0
-df$var1[df$treatment == "cz_friends_empty"] <- 1
+df$var1[df$treatment == "cz_alone_empty"] <- "Alone"
+df$var1[df$treatment == "cz_friends_empty"] <- "Friends"
 
 
 #Bussiness
 
-df$var2[df$treatment == "nogi_alone_normal"] <- 2
-df$var2[df$treatment == "nogi_friends_normal"] <- 2
+df$var2[df$treatment == "nogi_alone_normal"] <- "Normal"
+df$var2[df$treatment == "nogi_friends_normal"] <- "Normal"
 
-df$var2[df$treatment == "lamont_alone_busy"] <- 3
-df$var2[df$treatment == "lamont_friends_busy"] <- 3
+df$var2[df$treatment == "lamont_alone_busy"] <- "Busy"
+df$var2[df$treatment == "lamont_friends_busy"] <- "Busy"
 
-df$var2[df$treatment == "cz_alone_empty"] <- 1
-df$var2[df$treatment == "cz_friends_empty"] <- 1
+df$var2[df$treatment == "cz_alone_empty"] <- "Empty"
+df$var2[df$treatment == "cz_friends_empty"] <- "Empty"
 
 
 df$var2 <- as.factor(df$var2)
@@ -136,7 +136,7 @@ df$group <- as.factor(df$group)
 
 
 
-```{r}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 #Data Exploration
 
 df_dropped <- df |> 
@@ -170,7 +170,7 @@ qplot(x=group, y=grab_and_go, data=df_dropped, ylab="Agreement Level", geom="box
 qplot(x=group, y=enjoy_eating, data=df_dropped, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
 ```
 
-```{r}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 
 df_dropped|>
   group_by(group) |>
@@ -193,6 +193,19 @@ df_dropped|>
 
 
 
+interaction
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+ggplot(df_dropped, aes(x=interaction(var1, var2), y=sit_and_eat))+
+  geom_boxplot()
+
+
+with(df_dropped,interaction.plot(var1, var2, sit_and_eat))
+
+with(df_dropped,interaction.plot(var1, var2, sit_and_eat))
+
+```
 
 
 
