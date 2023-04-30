@@ -21,8 +21,8 @@ data <- read.csv('Mini-project+2_April+30,+2023_11.50.csv')
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 df <- data |> 
-  select(c(18:27))|>
-  filter(!row_number() %in% c(1))|>
+  select(c(7, 18:27))|>
+  filter(!row_number() %in% c(1,2))|>
   rename("consent"="Q1", 
          "dietary_resitriction"="Q2", 
          "class" ="Q2.1", 
