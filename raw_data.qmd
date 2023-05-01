@@ -255,3 +255,15 @@ TukeyNonaddPlot(find_new_dining~var1*var2, data=df_dropped)
 ```
 
 
+```{r}
+cellmeans <- df_dropped |>
+  group_by(var1, var2)|>
+  summarise(mean=log(mean(sit_and_eat)), sd=sd(sit_and_eat))
+
+
+ggplot(cellmeans, aes(x=mean, y=sd))+ geom_point()
+
+summary(lm(sd~mean, data=cellmeans))
+```
+
+
