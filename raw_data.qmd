@@ -11,6 +11,7 @@ library(rio)
 library(asbio)
 library(stringr)
 library(Stat2Data)
+library(car)
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -246,14 +247,25 @@ plot(dining_aov4, which=2)
 ```
 ```{r}
 TukeyNonaddPlot(sit_and_eat~var1*var2, data=df_dropped)
+leveneTest(sit_and_eat~var1*var2, data=df_dropped)
 
 TukeyNonaddPlot(enjoy_eating~var1*var2, data=df_dropped)
+leveneTest(enjoy_eating~var1*var2, data=df_dropped)
 
 TukeyNonaddPlot(grab_and_go~var1*var2, data=df_dropped)
+
 
 TukeyNonaddPlot(find_new_dining~var1*var2, data=df_dropped)
 ```
 
+```{r}
+df$sd_se <- sd(df$sit_and_eat)
+df$sd_ee <- sd(df$enjoy_eating)
+df$mean_se <- mean(df$sit_and_eat)
+df$mean_ee <- mean(df$enjoy_eating)
+
+ggplot()
+```
 
 ```{r}
 cellmeans <- df_dropped |>
