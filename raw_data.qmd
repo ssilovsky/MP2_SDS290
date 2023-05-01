@@ -259,12 +259,14 @@ TukeyNonaddPlot(find_new_dining~var1*var2, data=df_dropped)
 ```
 
 ```{r}
-df$sd_se <- sd(df$sit_and_eat)
-df$sd_ee <- sd(df$enjoy_eating)
-df$mean_se <- mean(df$sit_and_eat)
-df$mean_ee <- mean(df$enjoy_eating)
+cellmeans2 <- df_dropped |>
+  group_by(var1, var2)|>
+  summarise(mean=log(mean(enjoy_eating)), sd=sd(enjoy_eating))
 
-ggplot()
+
+ggplot(cellmeans2, aes(x=mean, y=sd)) + geom_point() 
+
+summary(lm(sd~mean, data=cellmeans2))
 ```
 
 ```{r}
@@ -273,7 +275,7 @@ cellmeans <- df_dropped |>
   summarise(mean=log(mean(sit_and_eat)), sd=sd(sit_and_eat))
 
 
-ggplot(cellmeans, aes(x=mean, y=sd))+ geom_point()
+ggplot(cellmeans, aes(x=mean, y=sd)) + geom_point() 
 
 summary(lm(sd~mean, data=cellmeans))
 ```
