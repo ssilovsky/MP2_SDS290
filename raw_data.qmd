@@ -270,6 +270,23 @@ summary(lm(sd~mean, data=cellmeans2))
 ```
 
 ```{r}
+#non-parametric tests
+
+
+wilcox.test(sit_and_eat~var1, data=df_dropped, conf.int=TRUE, exact=F)
+
+kruskal.test(sit_and_eat~var2, data=df_dropped)
+
+```
+
+
+
+
+
+
+
+
+```{r}
 cellmeans <- df_dropped |>
   group_by(var1, var2)|>
   summarise(mean=log(mean(sit_and_eat)), sd=sd(sit_and_eat))
