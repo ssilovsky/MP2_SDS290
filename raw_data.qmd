@@ -245,6 +245,8 @@ plot(dining_aov3, which=2)
 TukeyHSD(dining_aov4)
 plot(dining_aov4, which=2)
 ```
+
+
 ```{r}
 TukeyNonaddPlot(sit_and_eat~var1*var2, data=df_dropped)
 leveneTest(sit_and_eat~var1*var2, data=df_dropped)
@@ -273,28 +275,32 @@ summary(lm(sd~mean, data=cellmeans2))
 #non-parametric tests
 
 
-wilcox.test(sit_and_eat~var1, data=df_dropped, conf.int=TRUE, exact=F)
 
-kruskal.test(sit_and_eat~var2, data=df_dropped)
+kruskal.test(sit_and_eat~var1, data=df_dropped)
+kruskal.test(sit_and_eat~var2, data=df_dropped)#sigfig
+
+kruskal.test(enjoy_eating~var1, data=df_dropped)
+kruskal.test(enjoy_eating~var2, data=df_dropped)
+
+kruskal.test(find_new_dining~var1, data=df_dropped)
+kruskal.test(find_new_dining~var2, data=df_dropped)#sigfig
+
+
+kruskal.test(grab_and_go~var1, data=df_dropped)
+kruskal.test(grab_and_go~var2, data=df_dropped)#sigfig
 
 ```
 
 
-
-
-
-
-
-
 ```{r}
-cellmeans <- df_dropped |>
+logdata <- df_dropped |>
   group_by(var1, var2)|>
   summarise(mean=log(mean(sit_and_eat)), sd=sd(sit_and_eat))
 
 
-ggplot(cellmeans, aes(x=mean, y=sd)) + geom_point() 
+ggplot(logdata, aes(x=mean, y=sd)) + geom_point() 
 
-summary(lm(sd~mean, data=cellmeans))
+summary(lm(sd~mean, data=logdata))
 ```
 
 
