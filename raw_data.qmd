@@ -235,9 +235,11 @@ summary(dining_aov4)
 ```{r}
 TukeyHSD(dining_aov)
 plot(dining_aov, which=2)
+bonfCI(df$sit_and_eat, interaction(df$var1, df$var2), conf.level = 0.95)
 
 TukeyHSD(dining_aov2)
 plot(dining_aov2, which=2)
+bonfCI(df$enjoy_eating, interaction(df$var1, df$var2), conf.level = 0.95)
 
 TukeyHSD(dining_aov3)
 plot(dining_aov3, which=2)
