@@ -177,19 +177,19 @@ qplot(x=group, y=enjoy_eating, data=df_dropped, ylab="Agreement Level", geom="bo
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 
-df_dropped|>
+sit_eat_sd <- df_dropped|>
   group_by(group) |>
   summarise(Group_mean=mean(sit_and_eat), Sample_size=n(), standard_dev=sd(sit_and_eat))
 
-df_dropped|>
+find_new_sd <- df_dropped|>
   group_by(group) |>
   summarise(Group_mean=mean(find_new_dining), Sample_size=n(), standard_dev=sd(find_new_dining))
 
-df_dropped|> 
+grab_sd <- df_dropped|> 
   group_by(group) |>
   summarise(Group_mean=mean(grab_and_go), Sample_size=n(), standard_dev=sd(grab_and_go))
 
-df_dropped|> 
+enjoy_sd <- df_dropped|> 
   group_by(group) |>
   summarise(Group_mean=mean(enjoy_eating), Sample_size=n(), standard_dev=sd(enjoy_eating))
 
@@ -307,5 +307,25 @@ ggplot(logdata, aes(x=mean, y=sd)) + geom_point()
 
 summary(lm(sd~mean, data=logdata))
 ```
+```{r}
+ggplot(sit_eat_sd, aes(x = log(Group_mean), y = log(standard_dev))) + geom_point()
 
+summary(lm(log(standard_dev)~log(Group_mean), data = enjoy_sd))
+```
+```{r}
+ggplot(sit_eat_sd, aes(x = log(Group_mean), y = log(standard_dev))) + geom_point()
 
+summary(lm(log(standard_dev)~log(Group_mean), data = sit_eat_sd))
+```
+
+```{r}
+ggplot(find_new_sd, aes(x = log(Group_mean), y = log(standard_dev))) + geom_point()
+
+summary(lm(log(standard_dev)~log(Group_mean), data = find_new_sd))
+```
+
+```{r}
+ggplot(grab_sd, aes(x = log(Group_mean), y = log(standard_dev))) + geom_point()
+
+summary(lm(log(standard_dev)~log(Group_mean), data = grab_sd))
+```

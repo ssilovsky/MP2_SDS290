@@ -1,5 +1,6 @@
 ---
-title: "Mini Project 2"
+title: "Busyness and Company's Affect on Dining Hall Attendance"
+subtitle: "Mini Project 2"
 author: "Lessly Ortiz, Elysia Pil, Sophia Silovsky"
 format: pdf
 ---
@@ -27,11 +28,17 @@ Our research question is: Does dining hall capacity and company affect whether o
 
 # Methods
 
+For the treatment, we randomly assigned six groups of Smith students to see one of three dining hall images and one of two vignettes. The images represented the three levels of our variable "Busyness": empty, normal, busy. The images were of three Smith dining halls containing increasing amounts of people. The vignettes contained the same text, except for one line affirming the experimental, categorical "Busyness" variable and one line stating whether a person was going to a dining hall alone or with friends. The line stating whether a person was alone or with friends represents our second experimental, continuous variable "Company". To account for response variability, in the vignettes we stated that the response taker will eat at the dining hall closest to them, they are relatively hungry, and the meal is a meal they like, but not their favorite meal. 
+
+After the survey taker saw one of the images and read one of the vignettes, they were asked how much they agree with four statements on a seven point Likert Scale from Strongly Disagree to Strongly Agree. This was our continuous dependent variable. The statements were "I would sit down and eat at this dining hall", "I would go find a new dining hall to have dinner at", "I would take the food to go", and "I would enjoy eating at this dining hall". For the sake of simplicity, this report will only go over the results of the statements, "I would sit down and eat at this dining hall" and "I would enjoy eating at this dining hall". 
+
 
 # Results
 
 
+
 # Conclusion
+
 
 
 # Resources
