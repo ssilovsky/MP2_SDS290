@@ -4,10 +4,6 @@ author: "Lessly Ortiz, Elysia Pil, Sophia Silovsky"
 format: pdf
 ---
 
-# Questions
-
--   what to do w/ empty and na's??
-
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(Stat2Data)
@@ -24,15 +20,19 @@ df_dropped <- import("df_dropped.csv")
 
 # Introduction
 
-this is a test . this is also a test.
+Humans are dependent on food, it’s a fact of life. In fact, fMRI data has found that both food and social situations both influence brain activity in the substantia nigra (Kingsland). Just as we need food, we need people. However, different variables can affect whether or not a person will get the food they need. We decided to investigate what variables affect an individual’s decision to eat, and what variables make them inclined to eat at a non-convenient dining hall. We base our hypothesis off of current research on group-based social psychology. People are more likely to conform when with friends, even if they’re in an environment they do not want to be in (Walden University). 
 
+Our research question is: Does dining hall capacity and company affect whether or not a person goes to eat at that dining hall? Our alternative hypothesis is that as the busyness of a dining hall increases, you are more likely to leave for another dining hall and less likely to enjoy eating at the dining hall if you are alone. However, you are more likely to stay if you are with friends. Our alternative hypothesis states that there will be some change in a group's likelihood to leave a dining hall based on the busyness of the dining hall and whether an individual was alone or with friends.
 
 
 # Methods
 
+
 # Results
 
+
 # Conclusion
+
 
 # Resources
 
