@@ -15,7 +15,6 @@ library(Stat2Data)
 library(asbio)
 library(rio)
 library(Stat2Data)
-## new package!
 library(fastDummies)
 ```
 
@@ -24,16 +23,13 @@ df <- import("df.csv")
 ```
 
 
+# Introduction 
 
-```{r}
+# Methods
 
-```
+# Results
 
-
-
-
-
-
+# Conclusion
 
 
 

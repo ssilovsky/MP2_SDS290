@@ -15,7 +15,7 @@ library(car)
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-data <- read.csv('Mini-project+2_April+30,+2023_11.50.csv')
+data <- read.csv('Mini-project+2_May+5,+2023_13.13.csv')
 
 # clean_df <- subset(data, select = c(ResponseId,Finished,Q1, Q2, Q2.1,Q4, Q5, Q16_1, Q16_2,Q16_3,Q16_4,Treatment_DO))
 ```
@@ -89,7 +89,7 @@ df$enjoy_eating <-as.numeric(df$enjoy_eating)
 #drop_na("treatment", "intelligent_life", "Major")|> ???what do with na's???  
 
 
-export(df, "df.csv")
+
 ```
 
 
@@ -136,6 +136,9 @@ df$var1 <- as.factor(df$var1)
 df$group <- as.factor(df$group)
 ```
 
+```{r}
+export(df, "df.csv")
+```
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -190,7 +193,7 @@ df_dropped|>
   group_by(group) |>
   summarise(Group_mean=mean(enjoy_eating), Sample_size=n(), standard_dev=sd(enjoy_eating))
 
-
+export(df_dropped, "df_dropped.csv")
 ```
 
 
