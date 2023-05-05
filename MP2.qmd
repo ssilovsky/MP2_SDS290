@@ -4,10 +4,9 @@ author: "Lessly Ortiz, Elysia Pil, Sophia Silovsky"
 format: pdf
 ---
 
-# Questions 
-- what to do w/ empty and na's??
+# Questions
 
-
+-   what to do w/ empty and na's??
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -20,10 +19,14 @@ library(fastDummies)
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 df <- import("df.csv")
+df_dropped <- import("df_dropped.csv")
 ```
 
+# Introduction
 
-# Introduction 
+this is a test . this is also a test.
+
+
 
 # Methods
 
@@ -31,6 +34,8 @@ df <- import("df.csv")
 
 # Conclusion
 
+# Resources
 
+Kingsland, James. [Loneliness and Hunger Share a Home in the Brain](https://www.medicalnewstoday.com/articles/loneliness-and-hunger-share-a-home-in-the-brain). Medical News Today. 29 Nov. 2020.
 
-
+[Why Do People Act Differently in Groups than They Do Alone](https://www.waldenu.edu/online-masters-programs/ms-in-psychology/resource/why-do-people-act-differently-in-groups-than-they-do-alone). Walden University.
