@@ -15,7 +15,7 @@ library(car)
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-data <- read.csv('Mini-project+2_April+30,+2023_11.50.csv')
+data <- read.csv('Mini-project+2_May+5,+2023_13.13.csv')
 
 # clean_df <- subset(data, select = c(ResponseId,Finished,Q1, Q2, Q2.1,Q4, Q5, Q16_1, Q16_2,Q16_3,Q16_4,Treatment_DO))
 ```
@@ -89,7 +89,7 @@ df$enjoy_eating <-as.numeric(df$enjoy_eating)
 #drop_na("treatment", "intelligent_life", "Major")|> ???what do with na's???  
 
 
-export(df, "df.csv")
+
 ```
 
 
@@ -136,6 +136,9 @@ df$var1 <- as.factor(df$var1)
 df$group <- as.factor(df$group)
 ```
 
+```{r}
+export(df, "df.csv")
+```
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -174,23 +177,23 @@ qplot(x=group, y=enjoy_eating, data=df_dropped, ylab="Agreement Level", geom="bo
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 
-df_dropped|>
+sit_eat_sd <- df_dropped|>
   group_by(group) |>
   summarise(Group_mean=mean(sit_and_eat), Sample_size=n(), standard_dev=sd(sit_and_eat))
 
-df_dropped|>
+find_new_sd <- df_dropped|>
   group_by(group) |>
   summarise(Group_mean=mean(find_new_dining), Sample_size=n(), standard_dev=sd(find_new_dining))
 
-df_dropped|> 
+grab_sd <- df_dropped|> 
   group_by(group) |>
   summarise(Group_mean=mean(grab_and_go), Sample_size=n(), standard_dev=sd(grab_and_go))
 
-df_dropped|> 
+enjoy_sd <- df_dropped|> 
   group_by(group) |>
   summarise(Group_mean=mean(enjoy_eating), Sample_size=n(), standard_dev=sd(enjoy_eating))
 
-
+export(df_dropped, "df_dropped.csv")
 ```
 
 
@@ -304,5 +307,25 @@ ggplot(logdata, aes(x=mean, y=sd)) + geom_point()
 
 summary(lm(sd~mean, data=logdata))
 ```
+```{r}
+ggplot(sit_eat_sd, aes(x = log(Group_mean), y = log(standard_dev))) + geom_point()
 
+summary(lm(log(standard_dev)~log(Group_mean), data = enjoy_sd))
+```
+```{r}
+ggplot(sit_eat_sd, aes(x = log(Group_mean), y = log(standard_dev))) + geom_point()
 
+summary(lm(log(standard_dev)~log(Group_mean), data = sit_eat_sd))
+```
+
+```{r}
+ggplot(find_new_sd, aes(x = log(Group_mean), y = log(standard_dev))) + geom_point()
+
+summary(lm(log(standard_dev)~log(Group_mean), data = find_new_sd))
+```
+
+```{r}
+ggplot(grab_sd, aes(x = log(Group_mean), y = log(standard_dev))) + geom_point()
+
+summary(lm(log(standard_dev)~log(Group_mean), data = grab_sd))
+```
