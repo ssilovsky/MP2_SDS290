@@ -19,7 +19,13 @@ dining_aov <- aov(sit_and_eat~busy*company, data=df_dropped)
 
 summary(dining_aov)
 
+# effect of going from an empty dining hall to a busy dining hall
+effect_size = (1.3125000 / sqrt(1.813))
+# 0.97, based on Cohen's effect size, there is a large effect 
+
 TukeyHSD(dining_aov)
+ci <- TukeyHSD(dining_aov)
+plot(ci)
 plot(dining_aov, which=2)
 bonfCI(df$sit_and_eat, interaction(df$busy, df$company), conf.level = 0.95)
 ```
