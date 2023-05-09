@@ -87,6 +87,39 @@ We can look then at a Bonferoni confidence intervals for a more conservative loo
 bonfCI(df_dropped$sit_and_eat, interaction(df_dropped$busy, df_dropped$company), conf.level = 0.95)
 ```
 
+
+The effect of going from an empty dining hall to a busy dining hall (using Tukey HSD CI) comes out to 0.9747661. Based on Cohen's effect size, there is a large effect. There is a large effect of moving from an empty dining hall to a busy dining hall on the level of agreement on the statement "I would sit down and eat at this dining hall".
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+effect_size = (1.3125000 / sqrt(1.813))
+effect_size
+```
+
+
+
+For our `busy` variable, we get an R-squared of 0.1596802, about 16% of the variation of the level of agreement is explained by the busyness of the dining hall. 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+busy_r = 13.98/(13.98+3.59+6.54+63.44)
+busy_r
+```
+
+
+
+For our `company` variable, we get an R-squared of 0.04100514, about 4% of the variation of the level of agreement is explained by the company of the individual. However since the company variable is not significant, we currently do not have evidence that the amount of the variation explained by the company of the individual is significant. 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+company_r = 3.59/(13.98+3.59+6.54+63.44)
+company_r
+```
+
+
+For our `interaction` variable, we get an R-squared of 0.07470017, about 7% of the variation of the level of agreement is explained by the interaction between the busyness of the dining hall and the company of the individual. However since the interaction is not significant, we currently do not have evidence that the amount of the variation explained by the interaction between company and busyness is significant. 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+interaction_r = 6.54 / (13.98+3.59+6.54+63.44)
+interaction_r
+```
+
 # Conclusion
 
 
