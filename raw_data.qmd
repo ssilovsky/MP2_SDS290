@@ -173,12 +173,15 @@ qplot(x=group, y=sit_and_eat, data=df_dropped, ylab="Agreement Level", geom="box
 qplot(x=group, y=find_new_dining, data=df_dropped, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
 qplot(x=group, y=grab_and_go, data=df_dropped, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
 qplot(x=group, y=enjoy_eating, data=df_dropped, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
+
+qplot(x=interaction(busy, company), y=sit_and_eat, data=df_dropped, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
+
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 
 sit_eat_sd <- df_dropped|>
-  group_by(group) |>
+  group_by(interaction(busy, company)) |>
   summarise(Group_mean=mean(sit_and_eat), Sample_size=n(), standard_dev=sd(sit_and_eat))
 
 find_new_sd <- df_dropped|>
