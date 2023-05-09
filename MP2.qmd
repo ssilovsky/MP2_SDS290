@@ -81,7 +81,7 @@ We can now look at the Tukey HSD to find significant pair-wise comparisons of ou
 TukeyHSD(dining_aov)
 ```
 
-We can look then at a Bonferoni confidence intervals for a more conservative look at which pairwise comparisons are significant. We only find muBusy.Alone-muEmpty.Alone to be significant. Thus we see more support for the idea that when a person is alone in a dining hall, their response depends and differ significantly based on whether a dining hall is busy or empty.
+We can look then at a Bonferroni confidence intervals for a more conservative look at which pairwise comparisons are significant. We only find muBusy.Alone-muEmpty.Alone to be significant. Thus we see more support for the idea that when a person is alone in a dining hall, their response depends and differ significantly based on whether a dining hall is busy or empty.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 bonfCI(df_dropped$sit_and_eat, interaction(df_dropped$busy, df_dropped$company), conf.level = 0.95)
