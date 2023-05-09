@@ -109,30 +109,30 @@ df$group[df$treatment == "cz_friends_empty"] <- 6
 
 #with friends or not
 
-df$var1[df$treatment == "nogi_alone_normal"] <- "Alone"
-df$var1[df$treatment == "nogi_friends_normal"] <- "Friends"
+df$company[df$treatment == "nogi_alone_normal"] <- "Alone"
+df$company[df$treatment == "nogi_friends_normal"] <- "Friends"
 
-df$var1[df$treatment == "lamont_alone_busy"] <- "Alone"
-df$var1[df$treatment == "lamont_friends_busy"] <- "Friends"
+df$company[df$treatment == "lamont_alone_busy"] <- "Alone"
+df$company[df$treatment == "lamont_friends_busy"] <- "Friends"
 
-df$var1[df$treatment == "cz_alone_empty"] <- "Alone"
-df$var1[df$treatment == "cz_friends_empty"] <- "Friends"
+df$company[df$treatment == "cz_alone_empty"] <- "Alone"
+df$company[df$treatment == "cz_friends_empty"] <- "Friends"
 
 
 #Bussiness
 
-df$var2[df$treatment == "nogi_alone_normal"] <- "Normal"
-df$var2[df$treatment == "nogi_friends_normal"] <- "Normal"
+df$busy[df$treatment == "nogi_alone_normal"] <- "Normal"
+df$busy[df$treatment == "nogi_friends_normal"] <- "Normal"
 
-df$var2[df$treatment == "lamont_alone_busy"] <- "Busy"
-df$var2[df$treatment == "lamont_friends_busy"] <- "Busy"
+df$busy[df$treatment == "lamont_alone_busy"] <- "Busy"
+df$busy[df$treatment == "lamont_friends_busy"] <- "Busy"
 
-df$var2[df$treatment == "cz_alone_empty"] <- "Empty"
-df$var2[df$treatment == "cz_friends_empty"] <- "Empty"
+df$busy[df$treatment == "cz_alone_empty"] <- "Empty"
+df$busy[df$treatment == "cz_friends_empty"] <- "Empty"
 
 
-df$var2 <- as.factor(df$var2)
-df$var1 <- as.factor(df$var1)
+df$busy <- as.factor(df$busy)
+df$company <- as.factor(df$company)
 df$group <- as.factor(df$group)
 ```
 
