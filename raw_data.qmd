@@ -5,7 +5,7 @@ format: pdf
 ---
 
 ```{r}
-qplot(x=interaction(busy, company), y=sit_and_eat, data=df_dropped, ylab="Agreement Level", geom="boxplot") +theme(axis.title = element_text(size = 15))
+qplot(x=interaction(busy, company), y=sit_and_eat, data=df_dropped, xlab = "Interaction between Busyness and Company", ylab="Agreement Level", main = "Distribution of Agreement Level across Groups",geom="boxplot") + theme(axis.title = element_text(size = 15))
 
 sit_eat_sd <- df_dropped|>
   group_by(interaction(busy, company)) |>
