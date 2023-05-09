@@ -21,17 +21,17 @@ summary(dining_aov)
 
 # effect of going from an empty dining hall to a busy dining hall (using Tukey HSD CI)
 effect_size = (1.3125000 / sqrt(1.813))
-# 0.97, based on Cohen's effect size, there is a large effect 
+# 0.97, based on Cohen's effect size, there is a large effect. There is a large effect of moving from an empty dining hall to a busy dining hall on the level of agreement on the statement "I would sit down and eat at this dining hall."
 
 # R-squared
 busy_r = 13.98/(13.98+3.59+6.54+63.44)
-# 0.1596802, about 16% of the variation of the level of agreement is explained by the busyness of the dining hall
+# 0.1596802, about 16% of the variation of the level of agreement is explained by the busyness of the dining hall. 
 
 company_r = 3.59/(13.98+3.59+6.54+63.44)
-# 0.04100514, about 4% of the variation of the level of agreement is explained by the company of the individual 
+# 0.04100514, about 4% of the variation of the level of agreement is explained by the company of the individual. However since the company variable is not significant, we currently do not have evidence that the amount of the variation explained by the company of the individual is significant. 
 
 interaction_r = 6.54 / (13.98+3.59+6.54+63.44)
-# 0.07470017, about 7% of the variation of the level of agreement is explained by the interaction between the busyness of the dining hall and the company of the individual 
+# 0.07470017, about 7% of the variation of the level of agreement is explained by the interaction between the busyness of the dining hall and the company of the individual. However since the interaction is not significant, we currently do not have evidence that the amount of the variation explained by the interaction between company and busyness is significant.  
 
 TukeyHSD(dining_aov)
 ci <- TukeyHSD(dining_aov)
