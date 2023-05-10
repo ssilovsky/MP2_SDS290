@@ -274,8 +274,6 @@ summary(lm(sd~mean, data=cellmeans2))
 ```{r}
 #non-parametric tests
 
-
-
 kruskal.test(sit_and_eat~var1, data=df_dropped)
 kruskal.test(sit_and_eat~var2, data=df_dropped)#sigfig
 
@@ -284,7 +282,6 @@ kruskal.test(enjoy_eating~var2, data=df_dropped)
 
 kruskal.test(find_new_dining~var1, data=df_dropped)
 kruskal.test(find_new_dining~var2, data=df_dropped)#sigfig
-
 
 kruskal.test(grab_and_go~var1, data=df_dropped)
 kruskal.test(grab_and_go~var2, data=df_dropped)#sigfig
